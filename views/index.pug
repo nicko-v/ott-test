@@ -1,0 +1,21 @@
+html
+	head
+		title ott-test
+	body
+		form(action='/start' method='post')
+			input(type='text' name='owner'  placeholder='owner' required)
+			input(type='text' name='repo'   placeholder='repo' required)
+			input(type='date' name='date'   placeholder='date (YYYY-MM-DD)' required)
+			input(type='text' name='author' placeholder='author')
+			button POST /start
+		form(action='/end')
+			input(type='text' name='request_id' placeholder='request_id' value=request_id required)
+			button GET /end
+		hr
+		if request_id
+			p ID запроса: #{request_id}
+		if result
+			p Результат запроса:
+			pre #{result}
+		if error
+			p #{error}
